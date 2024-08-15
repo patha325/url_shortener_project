@@ -11,11 +11,13 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
 
-  steps:
-    # need checkout before using docker-compose-action
-    - uses: actions/checkout@v3
+    steps:
+    
+    - uses: actions/checkout@v2
     - uses: adambirds/docker-compose-action@v1.3.0
       with:
         compose-file: "docker-compose.yml"
         test-container: web
         test-command: "python manage.py test"
+
+
