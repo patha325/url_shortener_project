@@ -17,7 +17,8 @@ jobs:
         image: postgres
         env:
           POSTGRES_DB: url_shortener_db
-          POSTGRES_USER: postgres
+          POSTGRES_USER: user
+          POSTGRES_HOST: db
           POSTGRES_PASSWORD: password
         ports:
           - 5432:5432
