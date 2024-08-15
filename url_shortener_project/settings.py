@@ -65,7 +65,7 @@ DATABASES = {
         'NAME': 'url_shortener_db',
         'USER': 'user',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': 'postgres',
         'PORT': '5432',
     }
 }
