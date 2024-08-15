@@ -11,16 +11,11 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Start containers
-      run: docker-compose -f "docker-compose.yml" up -d --build
-
-    - name: Run tests
-      run: docker-compose exec web python manage.py test
-
-    - name: Stop containers
-      if: always()
-      run: docker-compose -f "docker-compose.yml" down
+  steps:
+  # need checkout before using docker-compose-action
+  - uses: actions/checkout@v3
+  - uses: adambirds/docker-compose-action@v1.3.0
+    with:
+      compose-file: "docker-compose.yml"
+      test-container: web
+      test-command: "python manage.py test"
