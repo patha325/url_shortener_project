@@ -1,7 +1,5 @@
 name: Django CI
 
-name: Django CI
-
 on: push
 
 jobs:
