@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}My URLs{% endblock %}
+
+{% block content %}
+<h2>My Shortened URLs</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+        <th>Clicks</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for url in urls %}
+    <tr>
+        <td><a href="{{ url.original_url }}">{{ url.original_url }}</a></td>
+        <td><a href="{{ url.short_url }}">{{ url.short_url }}</a></td>
+        <td>{{ url.clicks }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">You have not created any shortened URLs yet.</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
