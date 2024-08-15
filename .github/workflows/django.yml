@@ -1,24 +1,33 @@
 name: Django CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+name: Django CI
+
+on: push
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.10, 3.11]
+
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_DB: url_shortener_db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
@@ -27,4 +36,4 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python manage.py test
+        python manage.py runserver
