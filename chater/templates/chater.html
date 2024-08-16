@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with ChatGPT</title>
+</head>
+<body>
+<h1>Chat with ChatGPT</h1>
+
+<div id="chat-box">
+    {% for message in messages %}
+    <p><strong>{% if message.is_user %}You{% else %}ChatGPT{% endif %}:</strong> {{ message.content }}</p>
+    {% endfor %}
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+</body>
+</html>

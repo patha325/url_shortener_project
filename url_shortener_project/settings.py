@@ -10,7 +10,11 @@ SECRET_KEY = 'your-secret-key'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','localhost', '127.0.0.1']
+
+# Used for the chatter
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'your-api-key-here')
+
 
 # Application definition
 
@@ -22,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'url_shortener',  # Your app
+    'chater' # Your app
     # Other apps...
 ]
 
