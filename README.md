@@ -3,9 +3,10 @@
 This is a simple Django-based URL shortener application where users can create their own shortened URLs and track the number of clicks.
 
 ## Features
-- User authentication (login, logout (buggy))
+- User authentication (login, logout (with some bugs)
 - Create and manage your own shortened URLs
 - Track the number of clicks for each URL
+- A chat gpt easteregg!
 
 ## Setup
 
@@ -16,7 +17,7 @@ This is a simple Django-based URL shortener application where users can create t
 ### Installation
 
 1. Clone this repository:
-git clone https://github.com/yourusername/url-shortener.git
+git clone https://github.com/patha325/url_shortener_project.git
 cd url-shortener
 2. Build the Docker containers:
 docker-compose build
@@ -40,3 +41,4 @@ Django
 PostgreSQL
 Docker
 Docker Compose
+OpenAI (chatGPT)
