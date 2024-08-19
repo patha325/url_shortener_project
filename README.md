@@ -3,7 +3,7 @@
 This is a simple Django-based URL shortener application where users can create their own shortened URLs and track the number of clicks.
 
 ## Features
-- User authentication (signup, login, logout)
+- User authentication (login, logout (buggy))
 - Create and manage your own shortened URLs
 - Track the number of clicks for each URL
 
@@ -32,7 +32,7 @@ docker-compose up
 docker-compose exec web python manage.py makemigrations url_shortener
 docker-compose exec web python manage.py migrate
 
-### Installation
+### Test
 docker-compose exec web python manage.py test
 
 ### Technologies used
