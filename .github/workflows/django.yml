@@ -3,17 +3,19 @@ name: Django CI
 on: push
 
 jobs:
-  build:
-
+  container-job:
     runs-on: ubuntu-latest
 
+    container:
+      image:  python:3.10-slim
+
     strategy:
-      max-parallel: 4
+      max-parallel: 1
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.9]
 
     services:
-      db:
+      postgres:
         image: postgres
         env:
           POSTGRES_DB: url_shortener_db
